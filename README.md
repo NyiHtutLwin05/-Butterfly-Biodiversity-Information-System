@@ -94,10 +94,15 @@ npm run dev
 MongoDB is connected successfully
 
 🎨 Frontend Setup
-1️⃣ Open Frontend Folder
-cd frontend
 
-2️⃣ Run with Live Server
+###1️⃣ Open Frontend Folder
+
+```bash
+
+cd frontend
+```
+
+###2️⃣ Run with Live Server
 
 Open the frontend folder in VS Code
 
@@ -115,8 +120,10 @@ Frontend: HTML, CSS, JavaScript
 
 Database Tool: MongoDB Compass
 
+```bash
 📌 Notes
 
 Make sure MongoDB is running before starting the backend
 
 Backend must be running for full functionality
+```
