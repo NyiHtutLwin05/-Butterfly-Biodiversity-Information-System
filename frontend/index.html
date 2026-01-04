@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Butterfly Biodiversity Information System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <i class="fas fa-butterfly"></i>
+          <span>BBIS</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="posts.html">View Posts</a>
+          <a href="login.html">Login</a>
+          <a href="register.html">Register</a>
+        </div>
+        <div class="user-info" id="userInfo" style="display: none">
+          <span id="usernameDisplay"></span>
+          <button onclick="logout()" class="btn-logout">Logout</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Butterfly Biodiversity Information System</h1>
+        <p class="subtitle">
+          Track, Share, and Study Butterfly Species Across Southeast Asia
+        </p>
+        <p class="mission">
+          A platform for students, researchers, and nature lovers to document
+          butterfly sightings and contribute to biodiversity research.
+        </p>
+        <div class="cta-buttons">
+          <a href="posts.html" class="btn-primary">Explore Sightings</a>
+          <a href="register.html" class="btn-secondary">Join Our Community</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <h2>Why BBIS?</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <i class="fas fa-database"></i>
+            <h3>Centralized Database</h3>
+            <p>
+              Access comprehensive data on butterfly species across Southeast
+              Asia in one place.
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-camera"></i>
+            <h3>Photo Documentation</h3>
+            <p>
+              Upload and share high-quality images of butterfly sightings with
+              optional descriptions.
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-search"></i>
+            <h3>Advanced Search</h3>
+            <p>
+              Find specific sightings by species, location, or date with our
+              powerful search tools.
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-users"></i>
+            <h3>Community Driven</h3>
+            <p>
+              Connect with researchers, students, and nature enthusiasts
+              passionate about biodiversity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+      <div class="container">
+        <h2>Tracked Species</h2>
+        <div class="species-grid">
+          <!-- Species will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Posts Preview -->
+    <section class="recent-posts">
+      <div class="container">
+        <h2>Recent Sightings</h2>
+        <div class="posts-container" id="recentPosts"></div>
+        <a href="posts.html" class="btn-view-all">View All Sightings →</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>BBIS</h3>
+            <p>Butterfly Biodiversity Information System</p>
+            <p>Supporting environmental research since 2025</p>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="posts.html">All Posts</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+          </div>
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Myanmar Biodiversity Research Council</p>
+            <p>info@mbrc-mm.org</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025-2026 BBIS. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

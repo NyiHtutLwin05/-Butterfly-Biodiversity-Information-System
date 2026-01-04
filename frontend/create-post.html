@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Post - BBIS</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <i class="fas fa-butterfly"></i>
+          <span>BBIS</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="posts.html">View Posts</a>
+          <a href="create-post.html">Create Post</a>
+          <a href="login.html">Login</a>
+          <a href="register.html">Register</a>
+        </div>
+        <div class="user-info" id="userInfo" style="display: none">
+          <span id="usernameDisplay"></span>
+          <button onclick="logout()" class="btn-logout">Logout</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Redirect if not logged in -->
+    <div id="loginRequired" style="display: none">
+      <div class="form-container" style="max-width: 600px">
+        <div style="text-align: center; padding: 2rem">
+          <i
+            class="fas fa-lock"
+            style="font-size: 4rem; color: var(--accent); margin-bottom: 1rem"
+          ></i>
+          <h2 style="color: var(--primary-dark); margin-bottom: 1rem">
+            Login Required
+          </h2>
+          <p style="color: var(--medium-gray); margin-bottom: 2rem">
+            You need to be logged in to create a post. Please login or register
+            to share your butterfly sightings.
+          </p>
+          <div style="display: flex; gap: 1rem; justify-content: center">
+            <a
+              href="login.html"
+              class="btn-primary"
+              style="text-decoration: none"
+            >
+              <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+            <a
+              href="register.html"
+              class="btn-secondary"
+              style="text-decoration: none"
+            >
+              <i class="fas fa-user-plus"></i> Register
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Post Form (only visible when logged in) -->
+    <div id="postFormContainer" style="display: none">
+      <div class="container" style="max-width: 800px; padding: 2rem">
+        <div style="text-align: center; margin-bottom: 2rem">
+          <h1 style="color: var(--primary-dark); margin-bottom: 0.5rem">
+            <i class="fas fa-camera"></i> Share Your Sighting
+          </h1>
+          <p style="color: var(--medium-gray)">
+            Document your butterfly observation to contribute to biodiversity
+            research
+          </p>
+        </div>
+
+        <form id="postForm" enctype="multipart/form-data">
+          <!-- Basic Information -->
+          <div
+            class="form-section"
+            style="
+              background: white;
+              padding: 2rem;
+              border-radius: var(--border-radius);
+              box-shadow: var(--shadow);
+              margin-bottom: 2rem;
+            "
+          >
+            <h3
+              style="
+                color: var(--primary-dark);
+                margin-bottom: 1.5rem;
+                border-bottom: 2px solid var(--accent);
+                padding-bottom: 0.5rem;
+              "
+            >
+              <i class="fas fa-info-circle"></i> Observation Details
+            </h3>
+
+            <div
+              class="form-row"
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                margin-bottom: 1rem;
+              "
+            >
+              <div class="form-group">
+                <label for="butterflySpecies">
+                  <i class="fas fa-bug"></i> Butterfly Species *
+                </label>
+                <select
+                  id="butterflySpecies"
+                  name="butterflySpecies"
+                  class="form-control"
+                  required
+                >
+                  <option value="">Select a species</option>
+                  <option value="Tree Nymph (Idea lyuceus)">
+                    Tree Nymph (Idea lyuceus)
+                  </option>
+                  <option value="Autumn Leaf (Doleschallia bisalitde)">
+                    Autumn Leaf (Doleschallia bisalitde)
+                  </option>
+                  <option value="Cruiser (Vindula erota)">
+                    Cruiser (Vindula erota)
+                  </option>
+                  <option value="Orchard Swallowtail (Papilio aegeus)">
+                    Orchard Swallowtail (Papilio aegeus)
+                  </option>
+                  <option value="Peacock Pansy (Junonia almana)">
+                    Peacock Pansy (Junonia almana)
+                  </option>
+                  <option value="Painted Jezebel (Delias hyparete)">
+                    Painted Jezebel (Delias hyparete)
+                  </option>
+                  <option value="Malay Baron (Euthalia monina)">
+                    Malay Baron (Euthalia monina)
+                  </option>
+                  <option value="Common Bluebottle (Graphium sarpedon)">
+                    Common Bluebottle (Graphium sarpedon)
+                  </option>
+                  <option value="Green Dragontail (Lamproptera meges)">
+                    Green Dragontail (Lamproptera meges)
+                  </option>
+                  <option value="Blue Glassy Tiger (Ideopsis vulgaris)">
+                    Blue Glassy Tiger (Ideopsis vulgaris)
+                  </option>
+                  <option value="Common Rose (Pachliopta aristolochiae)">
+                    Common Rose (Pachliopta aristolochiae)
+                  </option>
+                  <option value="Great Orange Tip (Hebomoia glaucippe)">
+                    Great Orange Tip (Hebomoia glaucippe)
+                  </option>
+                  <option value="Malayan Lacewing (Cethosia hypsea)">
+                    Malayan Lacewing (Cethosia hypsea)
+                  </option>
+                  <option value="Common Birdwing (Troides helena)">
+                    Common Birdwing (Troides helena)
+                  </option>
+                  <option
+                    value="Rajah Brooke's Birdwing (Trogonoptera brookiana)"
+                  >
+                    Rajah Brooke's Birdwing (Trogonoptera brookiana)
+                  </option>
+                  <option value="Other">
+                    Other (please describe in comments)
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="geographicDistribution">
+                  <i class="fas fa-map-marker-alt"></i> Location *
+                </label>
+                <select
+                  id="geographicDistribution"
+                  name="geographicDistribution"
+                  class="form-control"
+                  required
+                >
+                  <option value="">Select a location</option>
+                  <option value="Yangon">Yangon, Myanmar</option>
+                  <option value="Mandalay">Mandalay, Myanmar</option>
+                  <option value="Bago">Bago, Myanmar</option>
+                  <option value="Chiang Mai">Chiang Mai, Thailand</option>
+                  <option value="Bangkok">Bangkok, Thailand</option>
+                  <option value="Phuket">Phuket, Thailand</option>
+                  <option value="Hanoi">Hanoi, Vietnam</option>
+                  <option value="Da Nang">Da Nang, Vietnam</option>
+                  <option value="Phnom Penh">Phnom Penh, Cambodia</option>
+                  <option value="Kuala Lumpur">Kuala Lumpur, Malaysia</option>
+                  <option value="Jakarta">Jakarta, Indonesia</option>
+                  <option value="Manila">Manila, Philippines</option>
+                  <option value="Sentosa Island">
+                    Sentosa Island, Singapore
+                  </option>
+                  <option value="Baucau">Baucau, Timor-Leste</option>
+                  <option value="Kampong Ayer">Kampong Ayer, Brunei</option>
+                </select>
+              </div>
+            </div>
+
+            <div
+              class="form-row"
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                margin-bottom: 1rem;
+              "
+            >
+              <div class="form-group">
+                <label for="date">
+                  <i class="fas fa-calendar"></i> Observation Date *
+                </label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  class="form-control"
+                  required
+                  max="2026-12-31"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="time">
+                  <i class="fas fa-clock"></i> Observation Time *
+                </label>
+                <input
+                  type="time"
+                  id="time"
+                  name="time"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Details -->
+          <div
+            class="form-section"
+            style="
+              background: white;
+              padding: 2rem;
+              border-radius: var(--border-radius);
+              box-shadow: var(--shadow);
+              margin-bottom: 2rem;
+            "
+          >
+            <h3
+              style="
+                color: var(--primary-dark);
+                margin-bottom: 1.5rem;
+                border-bottom: 2px solid var(--accent);
+                padding-bottom: 0.5rem;
+              "
+            >
+              <i class="fas fa-running"></i> Activity Details
+            </h3>
+
+            <div
+              class="form-row"
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem"
+            >
+              <div class="form-group">
+                <label for="primaryActivity">
+                  <i class="fas fa-tasks"></i> Primary Activity *
+                </label>
+                <select
+                  id="primaryActivity"
+                  name="primaryActivity"
+                  class="form-control"
+                  required
+                >
+                  <option value="">Select activity</option>
+                  <option value="Flying">Flying</option>
+                  <option value="Feeding">Feeding</option>
+                  <option value="Pollinating">Pollinating</option>
+                  <option value="Laying Eggs">Laying Eggs</option>
+                  <option value="Resting">Resting</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="duration">
+                  <i class="fas fa-hourglass-half"></i> Duration (minutes) *
+                </label>
+                <input
+                  type="number"
+                  id="duration"
+                  name="duration"
+                  class="form-control"
+                  min="1"
+                  max="480"
+                  placeholder="e.g., 30"
+                  required
+                />
+                <small style="color: var(--medium-gray)"
+                  >Maximum 8 hours (480 minutes)</small
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Comments and Image -->
+          <div
+            class="form-section"
+            style="
+              background: white;
+              padding: 2rem;
+              border-radius: var(--border-radius);
+              box-shadow: var(--shadow);
+              margin-bottom: 2rem;
+            "
+          >
+            <h3
+              style="
+                color: var(--primary-dark);
+                margin-bottom: 1.5rem;
+                border-bottom: 2px solid var(--accent);
+                padding-bottom: 0.5rem;
+              "
+            >
+              <i class="fas fa-comment"></i> Additional Information
+            </h3>
+
+            <div class="form-group">
+              <label for="comments">
+                <i class="fas fa-sticky-note"></i> Comments & Observations *
+              </label>
+              <textarea
+                id="comments"
+                name="comments"
+                class="form-control"
+                rows="4"
+                placeholder="Describe your observation in detail. Include weather conditions, behavior patterns, or any interesting notes..."
+                required
+                maxlength="500"
+              ></textarea>
+              <small
+                style="
+                  color: var(--medium-gray);
+                  display: block;
+                  text-align: right;
+                "
+              >
+                <span id="charCount">0</span>/500 characters
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="image">
+                <i class="fas fa-image"></i> Upload Photo (Optional)
+              </label>
+              <div
+                style="
+                  border: 2px dashed var(--medium-gray);
+                  border-radius: var(--border-radius);
+                  padding: 2rem;
+                  text-align: center;
+                  cursor: pointer;
+                "
+                onclick="document.getElementById('image').click()"
+                id="dropZone"
+              >
+                <i
+                  class="fas fa-cloud-upload-alt"
+                  style="
+                    font-size: 3rem;
+                    color: var(--medium-gray);
+                    margin-bottom: 1rem;
+                  "
+                ></i>
+                <p style="color: var(--medium-gray); margin-bottom: 0.5rem">
+                  Click to upload or drag and drop
+                </p>
+                <p style="color: var(--accent); font-size: 0.9rem">
+                  PNG or JPG only • Max 1.2MB
+                </p>
+              </div>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept=".png,.jpg,.jpeg"
+                style="display: none"
+              />
+
+              <div
+                id="imagePreview"
+                style="display: none; margin-top: 1rem; text-align: center"
+              >
+                <img
+                  id="previewImage"
+                  src=""
+                  alt="Preview"
+                  style="
+                    max-width: 200px;
+                    max-height: 200px;
+                    border-radius: var(--border-radius);
+                  "
+                />
+                <button
+                  type="button"
+                  onclick="removeImage()"
+                  style="
+                    display: block;
+                    margin: 0.5rem auto;
+                    background: var(--danger);
+                    color: white;
+                    border: none;
+                    padding: 0.3rem 1rem;
+                    border-radius: var(--border-radius);
+                    cursor: pointer;
+                  "
+                >
+                  <i class="fas fa-trash"></i> Remove Image
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Section -->
+          <div style="text-align: center; padding: 2rem">
+            <button
+              type="submit"
+              class="btn-submit"
+              style="padding: 1rem 3rem; font-size: 1.1rem"
+            >
+              <i class="fas fa-paper-plane"></i> Submit Observation
+            </button>
+            <p
+              style="
+                color: var(--medium-gray);
+                margin-top: 1rem;
+                font-size: 0.9rem;
+              "
+            >
+              Your observation will be reviewed and contribute to biodiversity
+              research
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

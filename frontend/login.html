@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - BBIS</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <i class="fas fa-butterfly"></i>
+          <span>BBIS</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="posts.html">View Posts</a>
+          <a href="login.html">Login</a>
+          <a href="register.html">Register</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="form-container">
+      <h2>Login to BBIS</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username"> <i class="fas fa-user"></i> Username </label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-control"
+            placeholder="Enter your username"
+            required
+            minlength="3"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password"> <i class="fas fa-lock"></i> Password </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Enter your password"
+            required
+            minlength="6"
+          />
+        </div>
+
+        <button type="submit" class="btn-submit">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </button>
+
+        <div class="form-footer">
+          <p>
+            Don't have an account? <a href="register.html">Register here</a>
+          </p>
+          <p>Just want to browse? <a href="posts.html">View public posts</a></p>
+        </div>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
