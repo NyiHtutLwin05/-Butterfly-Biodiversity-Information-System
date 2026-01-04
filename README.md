@@ -95,14 +95,14 @@ MongoDB is connected successfully
 
 🎨 Frontend Setup
 
-###1️⃣ Open Frontend Folder
+## 1️⃣ Open Frontend Folder
 
 ```bash
 
 cd frontend
 ```
 
-###2️⃣ Run with Live Server
+## 2️⃣ Run with Live Server
 
 Open the frontend folder in VS Code
 
