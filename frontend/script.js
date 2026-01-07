@@ -92,7 +92,7 @@ function checkAuth() {
   if (token) {
     const username = localStorage.getItem("username");
     if (usernameDisplay) {
-      usernameDisplay.textContent = `Welcome, ${username}`;
+      usernameDisplay.textContent = `${username}`;
     }
     if (userInfo) {
       userInfo.style.display = "flex";
