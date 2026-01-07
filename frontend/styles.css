@@ -152,8 +152,7 @@ body {
 }
 
 .btn-secondary {
-  background-color: transparent;
-  color: var(--text-light);
+  color: var(--text-dark);
   border: 2px solid var(--accent);
 }
 
@@ -330,7 +329,7 @@ body {
 
 .btn-secondary {
   background-color: rgba(255, 255, 255, 0.1);
-  color: var(--text-light);
+  color: var(--text-dark);
   border: 2px solid var(--accent);
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
@@ -340,7 +339,7 @@ body {
 
 .btn-secondary:hover {
   background-color: var(--accent);
-  color: white;
+
   transform: translateY(-2px);
 }
 
