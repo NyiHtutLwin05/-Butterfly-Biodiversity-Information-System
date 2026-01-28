@@ -69,6 +69,7 @@ body {
 
 .logo {
   display: flex;
+  gap: 4px;
   align-items: center;
   text-decoration: none;
   color: var(--text-light);
@@ -98,8 +99,8 @@ body {
 }
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.9)),
-    url("");
+  background:
+    linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.9)), url("");
   background-size: cover;
   background-position: center;
   color: var(--text-light);
@@ -143,7 +144,9 @@ body {
   text-decoration: none;
   font-weight: bold;
   color: black;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .btn-primary {

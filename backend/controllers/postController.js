@@ -90,6 +90,24 @@ export const getUserPosts = async (req, res) => {
   }
 };
 
+export const searchPosts = async (req, res) => {
+  try {
+    const { q } = req.query;
+
+    const posts = await Post.find({
+      $or: [
+        { butterflySpecies: { $regex: q, $options: "i" } },
+        { geographicDistribution: { $regex: q, $options: "i" } },
+        { comments: { $regex: q, $options: "i" } },
+      ],
+    }).sort({ createdAt: -1 });
+
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 export const updatePost = async (req, res) => {
   try {
     const { id } = req.params;
@@ -166,24 +184,6 @@ export const deletePost = async (req, res) => {
 
     await Post.findByIdAndDelete(id);
     res.json({ message: "Post deleted successfully" });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
-export const searchPosts = async (req, res) => {
-  try {
-    const { q } = req.query;
-
-    const posts = await Post.find({
-      $or: [
-        { butterflySpecies: { $regex: q, $options: "i" } },
-        { geographicDistribution: { $regex: q, $options: "i" } },
-        { comments: { $regex: q, $options: "i" } },
-      ],
-    }).sort({ createdAt: -1 });
-
-    res.json(posts);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
