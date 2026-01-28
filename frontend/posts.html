@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,7 +15,11 @@
     <nav class="navbar">
       <div class="nav-container">
         <a href="index.html" class="logo">
-          <i class="fas fa-butterfly"></i>
+          <img
+            src="/frontend/images/BBIS_LOGO.png"
+            alt=""
+            style="width: 50px; height: 50px; border-radius: 200px"
+          />
           <span>BBIS</span>
         </a>
         <div class="nav-links">
@@ -273,7 +277,7 @@
                                       post.geographicDistribution
                                     }</span>
                                     <span class="post-date">📅 ${new Date(
-                                      post.date
+                                      post.date,
                                     ).toLocaleDateString()}</span>
                                     <span class="post-time">⏰ ${
                                       post.time
@@ -295,7 +299,7 @@
                                 </div>
                             </div>
                         </div>
-                    `
+                    `,
               )
               .join("");
 
@@ -307,7 +311,7 @@
               posts.forEach((post) => {
                 if (post.username === username) {
                   const actionsDiv = document.getElementById(
-                    `actions-${post._id}`
+                    `actions-${post._id}`,
                   );
                   if (actionsDiv) {
                     actionsDiv.innerHTML = `
